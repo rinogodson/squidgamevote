@@ -1,5 +1,8 @@
 # ⏺️🔼⏹️ Squid Game Vote
 
+[DEMO](https://squidgamevote.netlify.app)
+
+
 This is an amazing Squid Game Style voting app. This Squid Game-themed voting app is a thrilling, immersive experience designed to capture the suspense and drama of the series while incorporating interactive decision-making for users. Here’s a detailed walkthrough of how it works:
 
 ## Technologies Used
