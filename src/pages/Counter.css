@@ -1,0 +1,11 @@
+.soldierSpeech{
+    color: #ff95f1;
+    text-shadow: 0px 0px 5px #ff95f16a;
+}
+
+
+@media screen and (max-width: 600px) {
+    .pinkSoldiers{
+        transform: scale(0.8);
+    }
+}

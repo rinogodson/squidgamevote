@@ -1,0 +1,64 @@
+.playerToBeEliminated{
+    background-color: black;
+    color: #ffe4e4;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    max-width: 3ch;
+    border: #8a8787 solid 2px;
+    font-family: JetBrains Mono;
+    margin-block: 30px;
+}
+
+.eliminated{
+    color: rgba(240, 255, 255, 0.803);
+}
+
+.EliminateBt{
+    background-color: #b13a3a;
+    border: #ff6b6b solid 2px;
+    color: rgba(255, 255, 255, 0.805);
+    font-weight: 700;
+    transition: all 0.1s ease;
+    width: 60px;
+    height: 60px;
+    border-radius: 100000px;
+    padding: 10px;
+    font-size: 30px;
+    font-family: JetBrains Mono;
+    margin: 10px;
+}
+
+.LiveBt{
+    background-color: #3ab142;
+    border: #86ff6b solid 2px;
+    color: rgba(255, 255, 255, 0.805);
+    font-weight: 700;
+    transition: all 0.1s ease;
+    width: 60px;
+    height: 60px;
+    border-radius: 100000px;
+    padding: 10px;
+    font-size: 30px;
+    font-family: JetBrains Mono;
+    margin: 10px;
+}
+
+.LiveBt:active{
+    background-color: #4bff75;
+    transform: scale(0.9);
+}
+
+.EliminateBt:active{
+    background-color: #ff4b4b;
+    transform: scale(0.9);
+}
+
+.input-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -3,6 +3,10 @@
   src: url('/SupernormaleEigSma W00 Bold.ttf') format('truetype');
 }
 
+*{
+  overflow: hidden;
+}
+
 body {
   background: linear-gradient(0deg, #e44f9729, #ba54d93f, #3d21784f), #000;
   box-shadow: inset 0 0 1000px 10px rgba(0, 0, 0, 1);
@@ -10,16 +14,22 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100vw;
   margin: 0;
   font-family: 'Supernormale', monospace;
-  position: relative;
-  overflow: hidden;
+  overscroll-behavior: none;
 }
+
 
 .container{
   display: flex;
-  justify-content: center;
+  height: 100dvh;
+  justify-content: space-between;
   align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  overscroll-behavior: none;
+
 }
 
 .screen{
@@ -31,6 +41,7 @@ body {
   box-shadow: 0 0 50px 2px rgba(0, 0, 0, 0.5);
   display: flex;
   animation: saturater 5s linear infinite;
+  margin-top: 30px;
 }
 
 @keyframes saturater {
@@ -41,7 +52,7 @@ body {
 
 @media screen and (max-width: 500px) {
   .screen {
-    transform: scale(0.5);
+    transform: scale(0.7);
   }
 }
 
@@ -177,3 +188,46 @@ body {
 
 
 
+
+
+.RegBt{
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+
+  &:active {
+    background-color: #e0e0e0;
+  }
+}
+
+.dialogBox{
+  font-family: JetBrains Mono;
+  position: absolute;
+  background-color: #000000c2;
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.buttons{
+  margin-bottom: 30px;
+}
+
+.logo{
+  width: 80%;
+  margin-bottom: 30px;
+}

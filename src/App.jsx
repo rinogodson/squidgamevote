@@ -1,23 +1,24 @@
 import React from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import "./App.css";
-import ScoreBoard from "./components/ScoreBoard";
+
+import Counter from "./pages/Counter";
+import Home from "./pages/Home";
+import Eliminator from "./pages/Eliminator";
+
 function App() {
+  const [playerCount, setPlayerCount] = React.useState(456);
+  const location = useLocation();
+
   return (
-    <div className="container">
-      <div style={{position: "absolute", top: "70px"}} className="screen">
-        <div className="scoreboard-container">
-          <ScoreBoard letter="X" value="142" />
-          <div className="separator">:</div>
-
-          <ScoreBoard letter="O" value="132" />
-        </div>
-      </div>
-
-      <div className="buttons">
-        
-      </div>
-
-    </div>
+    <AnimatePresence>
+      <Routes>
+        <Route path="/" element={<Home playerCount={playerCount} setPlayerCount={setPlayerCount} />} />
+        <Route path="/eliminator" element={<Eliminator playerCount={playerCount} />} />
+        <Route path="/voting" element={<Counter />} />
+      </Routes>
+    </AnimatePresence>
   );
 }
 

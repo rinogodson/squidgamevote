@@ -1,0 +1,54 @@
+.ox-bt-container{
+    display: flex;
+    background: linear-gradient(0deg, #131313, #1b1b1b);
+    box-shadow: inset 0 0 20px 2px rgba(0, 0, 0, 0.827);
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border-radius: 100000px;
+    gap: 30px;
+}
+
+.Bt{
+    width: 80px;
+    height: 80px;
+    border-radius: 100000px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 35px;
+    border: none;
+}
+
+.xBt{
+    color: rgba(255, 255, 255, 0.805);
+    font-weight: 700;
+    box-shadow: inset 0 0 20px 2px rgba(0, 0, 0, 0.827);
+    background: linear-gradient(145deg, #ff4b4b, #4e0303);
+    transition: all 0.1s ease;
+}
+.xBt:active{
+    color: #fff;
+    background: linear-gradient(145deg, #fb2828, #e91c1c);
+    box-shadow: inset 0 0 30px 3px rgba(255, 53, 53, 0.827), 0 0 40px 2px rgba(255, 105, 105, 0.827);
+    transform: scale(0.9);
+}
+
+.oBt{
+    color: rgba(255, 255, 255, 0.805);
+    font-weight: 700;
+    box-shadow: inset 0 0 20px 2px rgba(0, 0, 0, 0.827);
+    background: linear-gradient(145deg, #1370b6, #03034e);
+    transition: all 0.1s ease;
+}
+.oBt:active{
+    color: #fff;
+    background: linear-gradient(145deg, #00aab0, #0c394e);
+    box-shadow: inset 0 0 30px 3px #00b2fe, 0 0 40px 2px #039196;
+    transform: scale(0.9);
+}
+
+.pad{
+    background-color: #0b0b0b;
+    border-radius: 1000000px;
+    padding: 10px;
+}
