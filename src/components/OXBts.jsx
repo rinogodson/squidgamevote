@@ -2,14 +2,17 @@ import React from "react";
 import { Howl } from "howler";
 import "./OXBts.css";
 
-function OXBts() {
+function OXBts({ handleOvote, handleXvote}) {
   const sound = new Howl({
-    src: ['./ButtonSound.mp3']
+    src: ['./ButtonSound.mp3'],
+  });
+
+  const flip = new Howl({
+    src: ['./Flip.mp3']
   });
 
   const handleMouseDown = () => {
     if (!sound.playing()) {
-      sound.loop(true);
       sound.play();
     }
   };
@@ -23,7 +26,14 @@ function OXBts() {
       <div className="pad">
         <button 
           onMouseDown={handleMouseDown} 
-          onMouseUp={handleMouseUp} 
+          onMouseUp={()=>{
+            handleMouseUp()
+            setTimeout(() => {
+              handleXvote()
+              flip.play();
+            }, 300);
+
+          }} 
           className="xBt Bt"
         >
           ✕
@@ -32,7 +42,15 @@ function OXBts() {
       <div className="pad">
         <button 
           onMouseDown={handleMouseDown} 
-          onMouseUp={handleMouseUp} 
+          onMouseUp={()=>{
+            handleMouseUp()
+
+            setTimeout(() => {
+              handleOvote();
+              flip.play();
+            }, 300);
+
+            }} 
           className="oBt Bt"
         >
           〇

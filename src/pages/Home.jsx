@@ -21,7 +21,7 @@ function Home({playerCount, setPlayerCount}) {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        gap: "80px",
+        gap: "25px",
       }}
       className="container"
     >
@@ -36,9 +36,14 @@ function Home({playerCount, setPlayerCount}) {
           }
         }} className="playerInputChild" type="text" />
       </div>
+      <div>
+      <p style={{fontFamily: "JetBrains Mono", color: "#fff", maxWidth: "30ch", textAlign:"center"}}>Can't decide on something with your friends? Play it off!</p>
+      <p style={{fontFamily: "JetBrains Mono", color: "#cccccc", maxWidth: "30ch", textAlign:"center"}}>Compatible with small screens (It is a Progressive Web-App, <a style={{color: "#FEFE40"}} href="https://pastebin.com/raw/PEe0gxzM">Install it.</a>), but desktop recommended.</p>
+      </div>
       <button onClick={handleContinue} className="RegBt">
         {"Continue >"}
       </button>
+      <a style={{color: "#FEFE40"}} href="https://youtu.be/kdo46eMNcTM">Tutorial.</a>
     </motion.div>
   );
 }

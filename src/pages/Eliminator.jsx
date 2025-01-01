@@ -1,15 +1,21 @@
 import React from 'react'
 import './Eliminator.css'
 import { motion } from 'framer-motion';
-function Eliminator({playerCount}) {
+import { useNavigate } from 'react-router';
+function Eliminator({playerCount, votingInfo, setVotingInfo}) {
     const [players, setPlayers] = React.useState(Array.from({ length: playerCount }, (_, i) => ({ id: (i + 1).toString().padStart(3, '0'), eliminated: false })));
     const [playerToBeEliminated, setPlayerToBeEliminated] = React.useState('')
+
+    const navigate = useNavigate()
 
     function handleClick(id){
         setPlayers(players.map((player) => player.id === id ? { ...player, eliminated: !player.eliminated } : player))
     }
     function handleEliminate(){
-      setShowDialog(true)
+        let votingPlayers = players.filter((player) => !player.eliminated)
+        votingPlayers = votingInfo.notReverse ? votingPlayers : votingPlayers.reverse()
+        setVotingInfo({...votingInfo, votingPlayers: votingPlayers.map((player) => player.id)})
+        navigate('/voting')
     }
 
     function flipHandler(){
@@ -80,18 +86,20 @@ function Eliminator({playerCount}) {
             type="radio"
             name="order"
             value="ascending"
-            onChange={() => setOrder('ascending')}
+            checked={votingInfo.notReverse === true}
+            onChange={() => setVotingInfo({ ...votingInfo, notReverse: true })}
           />
-          Ascending
+          increasing
         </label>
         <label>
           <input
             type="radio"
             name="order"
             value="descending"
-            onChange={() => setOrder('descending')}
+            checked={votingInfo.notReverse === false}
+            onChange={() => setVotingInfo({ ...votingInfo, notReverse: false })}
           />
-          Descending
+          reverse
         </label>
       </div>
       <button onClick={handleEliminate} className="RegBt">

@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @font-face {
   font-family: 'Supernormale';
   src: url('/SupernormaleEigSma W00 Bold.ttf') format('truetype');
 }
+
 
 *{
   overflow: hidden;
@@ -18,12 +20,14 @@ body {
   margin: 0;
   font-family: 'Supernormale', monospace;
   overscroll-behavior: none;
+  user-select: none;
 }
 
 
 .container{
   display: flex;
   height: 100dvh;
+  width: 100vw;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
@@ -225,9 +229,17 @@ body {
 
 .buttons{
   margin-bottom: 30px;
+  transition: all 0.3s ease;
 }
 
 .logo{
-  width: 80%;
+  width: 25%;
   margin-bottom: 30px;
+}
+
+@media screen and (max-width: 500px) {
+  .logo {
+    width: 80%;
+  }
+  
 }
