@@ -98,7 +98,7 @@ function Home({ playerCount, setPlayerCount, setBorderColor }) {
           Compatible with small screens (It is a Progressive Web-App), but desktop recommended.
         </p>
       </div>
-      <a style={{ color: "#FEFE40" }} href="https://youtu.be/kdo46eMNcTM">
+      <a style={{ color: "#FEFE40" }} href="https://github.com/rinogodson/squidgamevote/blob/master/TUTORIAL.md">
         Tutorial.
       </a>
     </motion.div>
