@@ -2,8 +2,16 @@ import React from "react";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-function Home({ playerCount, setPlayerCount }) {
+function Home({ playerCount, setPlayerCount, setBorderColor }) {
   const navigate = useNavigate();
+
+  const inputRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
 
   const toggleFullScreen = ()=>{
     const element = document.documentElement;
@@ -12,6 +20,10 @@ function Home({ playerCount, setPlayerCount }) {
       element.requestFullscreen();
     }
   }
+  
+  setBorderColor("#0b0b0b");
+
+  
 
   const handleContinue = () => {
     if (playerCount > 1) {
@@ -45,6 +57,7 @@ function Home({ playerCount, setPlayerCount }) {
           Input <br /> No. of players
         </label>
         <input
+          ref={inputRef}
           value={playerCount}
           onChange={(e) => {
             if (e.target.value === "") {
@@ -82,14 +95,7 @@ function Home({ playerCount, setPlayerCount }) {
             textAlign: "center",
           }}
         >
-          Compatible with small screens (It is a Progressive Web-App,{" "}
-          <a
-            style={{ color: "#FEFE40" }}
-            href="https://pastebin.com/raw/PEe0gxzM"
-          >
-            Install it.
-          </a>
-          ), but desktop recommended.
+          Compatible with small screens (It is a Progressive Web-App), but desktop recommended.
         </p>
       </div>
       <a style={{ color: "#FEFE40" }} href="https://youtu.be/kdo46eMNcTM">

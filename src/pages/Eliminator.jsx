@@ -2,11 +2,13 @@ import React from 'react'
 import './Eliminator.css'
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router';
-function Eliminator({playerCount, votingInfo, setVotingInfo}) {
+function Eliminator({playerCount, votingInfo, setVotingInfo, setBorderColor}) {
     const [players, setPlayers] = React.useState(Array.from({ length: playerCount }, (_, i) => ({ id: (i + 1).toString().padStart(3, '0'), eliminated: false })));
     const [playerToBeEliminated, setPlayerToBeEliminated] = React.useState('')
 
     const navigate = useNavigate()
+
+    setBorderColor("#0b0b0b");
 
     function handleClick(id){
         setPlayers(players.map((player) => player.id === id ? { ...player, eliminated: !player.eliminated } : player))
@@ -49,6 +51,7 @@ function Eliminator({playerCount, votingInfo, setVotingInfo}) {
         alignItems: "center",
         flexDirection: "column",
         gap: "20px",
+        width: '100vw',
       }}
     >
       <p style={{ color: "white" }}>
@@ -62,6 +65,7 @@ function Eliminator({playerCount, votingInfo, setVotingInfo}) {
         </button>
       </p>
       <p style={{margin: '50px', color: 'white', overflow: 'auto', height: '200px'}}>
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '10px'}}>
         {players.map((item) =>
           item.eliminated ? (
             <span
@@ -69,17 +73,18 @@ function Eliminator({playerCount, votingInfo, setVotingInfo}) {
               onClick={() => handleClick(item.id)}
               className="eliminated"
             >
-              {item.id},{" "}
+              {item.id}
             </span>
           ) : null
         )}
+        </div>
       </p>
       <div className="input-cont">
-      <button onClick={HandleLivePlayer} className='LiveBt'>L</button>
+      <button onClick={HandleLivePlayer} className='LiveBt'>Live</button>
         <input placeholder='000' value={playerToBeEliminated} onChange={(e)=>setPlayerToBeEliminated(e.target.value)} type="text" className="playerToBeEliminated" />
-        <button onClick={HandleKillPlayer} className='EliminateBt'>E</button>
+        <button onClick={HandleKillPlayer} className='EliminateBt'>Dead</button>
       </div>
-      <div style={{ display: 'flex', gap: '10px', color: 'white', fontFamily: 'JetBrains Mono', marginBottom: '20px', flexDirection: 'column' }}>
+      <div className='radioInputs'>
         <p>Voting in the order of:</p>
         <label>
           <input

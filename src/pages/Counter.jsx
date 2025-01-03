@@ -6,7 +6,7 @@ import "./Counter.css";
 
 import { motion } from "framer-motion";
 
-function Counter({ votingInfo, setVotingInfo }) {
+function Counter({ votingInfo, setVotingInfo, setBorderColor }) {
   const [soldierSpeech, setSoldierSpeech] = React.useState("Player " + votingInfo.votingPlayers[0]);
   const [canVote, setCanVote] = React.useState(true);
   const [pointer, setPointer] = React.useState(0);
@@ -44,6 +44,7 @@ function Counter({ votingInfo, setVotingInfo }) {
   React.useEffect(() => {
     if(pointer === votingInfo.votingPlayers.length){
       setSoldierSpeech(["Voting Ended,", <br />, (votes["X"] === votes["O"] ? ["Draw! Voting will be ", <br/>, "held again tomorrow."] : `Majority Chose ${votes["X"] > votes["O"] ? "X" : "O"}`)]);
+      setBorderColor(votes["X"] === votes["O"] ? "#2b2b2b" : (votes["X"] > votes["O"] ? "#CE4345" : "#00A2AA"));
       setDoneVoting(true);
     }
   }, [pointer, votes, votingInfo.votingPlayers.length]);
@@ -86,7 +87,7 @@ function Counter({ votingInfo, setVotingInfo }) {
         }}
         className="buttons"
       >
-        <OXBts handleOvote={handleOvote} handleXvote={handleXvote} />
+        <OXBts setCanVote={setCanVote} handleOvote={handleOvote} handleXvote={handleXvote} />
       </div>
     </motion.div>
   );

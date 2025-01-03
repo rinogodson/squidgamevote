@@ -2,7 +2,7 @@ import React from "react";
 import { Howl } from "howler";
 import "./OXBts.css";
 
-function OXBts({ handleOvote, handleXvote}) {
+function OXBts({ setCanVote, handleOvote, handleXvote}) {
   const sound = new Howl({
     src: ['./ButtonSound.mp3'],
   });
@@ -21,18 +21,22 @@ function OXBts({ handleOvote, handleXvote}) {
     sound.stop();
   };
 
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
   return (
     <div className="ox-bt-container">
       <div className="pad">
         <button 
-          onMouseDown={handleMouseDown} 
+          onClick={isMobile ? handleMouseDown : null}
+          onMouseDown={!isMobile ? handleMouseDown : null}
           onMouseUp={()=>{
             handleMouseUp()
+            setCanVote(false);
             setTimeout(() => {
               handleXvote()
               flip.play();
+              setCanVote(true);
             }, 300);
-
           }} 
           className="xBt Bt"
         >
@@ -41,16 +45,17 @@ function OXBts({ handleOvote, handleXvote}) {
       </div>
       <div className="pad">
         <button 
-          onMouseDown={handleMouseDown} 
+          onClick={isMobile ? handleMouseDown : null}
+          onMouseDown={!isMobile ? handleMouseDown : null}
           onMouseUp={()=>{
             handleMouseUp()
-
+            setCanVote(false);
             setTimeout(() => {
               handleOvote();
               flip.play();
+              setCanVote(true);
             }, 300);
-
-            }} 
+          }} 
           className="oBt Bt"
         >
           〇
