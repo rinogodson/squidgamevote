@@ -1,6 +1,6 @@
 # ⏺️🔼⏹️ Squid Game Vote
 
-[DEMO](https://squidgamevote.netlify.app)
+## [Try It Here!](https://squidgamevote.netlify.app)
 
 
 This is an amazing Squid Game Style voting app. This Squid Game-themed voting app is a thrilling, immersive experience designed to capture the suspense and drama of the series while incorporating interactive decision-making for users. Here’s a detailed walkthrough of how it works:
@@ -41,7 +41,7 @@ npm install
 ```
 
 ## Usage
-[You can get a tutorial here.](https://youtu.be/kdo46eMNcTM).
+[You can get a tutorial here.](https://github.com/rinogodson/squidgamevote/blob/master/TUTORIAL.md).
 
 ```bash
 # Start the development server
