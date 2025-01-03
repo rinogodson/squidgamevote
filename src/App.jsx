@@ -7,10 +7,12 @@ import Counter from "./pages/Counter";
 import Home from "./pages/Home";
 import Eliminator from "./pages/Eliminator";
 
+
+
 function App() {
-  const [playerCount, setPlayerCount] = React.useState(456);
+  const [playerCount, setPlayerCount] = React.useState(0);
   const [votingInfo, setVotingInfo] = React.useState({"votingPlayers": [], "notReverse": true});
-  const location = useLocation();
+  const location = useLocation();  
 
   return (
     <AnimatePresence>
