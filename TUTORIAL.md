@@ -12,8 +12,6 @@
 
 </br>
 
-$$ E = mc^2 $$
-LOL
 <div style="display:flex; flex-direction: row; gap: 20px">
     <img src="https://cloud-3ourf4kfo-hack-club-bot.vercel.app/12.png" width="300px">
     <article>
