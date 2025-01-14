@@ -6,9 +6,16 @@
     text-align: center;
     font-size: 30px;
     font-weight: bold;
-    max-width: 3ch;
+    width: 65px;
+    height: fit-content;
     border: #8a8787 solid 2px;
     font-family: JetBrains Mono;
+    transition: all 300ms ease;
+}
+.playerToBeEliminated:focus{
+    border: #d7d7d7 solid 2px;
+    width: 80px;
+    font-size: 35px;
 }
 
 .eliminated{
@@ -16,49 +23,55 @@
     font-family: 'JetBrains Mono';
     font-size: 1.5em;
     background-color: #000;
-    padding: 2px 4px;
+    text-shadow: 0 0 10px #fff;
+    padding: 4px 8px;
+    position: relative;
     border: solid 2px #494949;
     height: fit-content;
     width: fit-content;
-    border-radius: 5px;
+    border-radius: 18px;
 }
 
 .EliminateBt{
     background-color: #b13a3a;
-    border: #ff6b6b solid 2px;
+    border: none;
+    box-shadow: inset 0 -7px 20px 1px #00000092;
     color: rgba(255, 255, 255, 0.805);
     font-weight: 700;
     transition: all 0.1s ease;
     width: 80px;
-    height: 60px;
-    border-radius: 45px;
+    height: 55px;
+    border-radius: 0px 45px 45px 0px;
     padding: 10px;
     font-size: 20px;
     font-family: JetBrains Mono;
+    transition: all 300ms ease;
 }
 
 .LiveBt{
     background-color: #3ab142;
-    border: #86ff6b solid 2px;
+    border: none;
+    box-shadow: inset 0 -7px 20px 1px #00000092;
     color: rgba(255, 255, 255, 0.805);
     font-weight: 700;
     transition: all 0.1s ease;
     width: 80px;
-    height: 60px;
-    border-radius: 45px;
+    height: 55px;
+    border-radius: 45px 0px 0px 45px;
     padding: 10px;
     font-size: 20px;
     font-family: JetBrains Mono;
+    transition: all 300ms ease;
 }
 
 .LiveBt:active{
-    background-color: #4bff75;
-    transform: scale(0.9);
+    background-color: #49df55;
+    text-align: end;
 }
 
 .EliminateBt:active{
     background-color: #ff4b4b;
-    transform: scale(0.9);
+    text-align: start;
 }
 
 .input-cont{
@@ -66,25 +79,33 @@
     justify-content: center;
     align-items: center;
     transform: scale(1.2);
-    gap: 10px;
+    gap: 0px;
 }
 
 .radioInputs{
     display: flex;
-    gap: 10px;
+    gap: 20px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
     background-color: #00000067;
-    padding: 20px 30px;
+    padding: 20px;
     font-size: 20px;
     flex-direction: column;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 40px;
     margin-top: 20px;
     border: #ffffff13 solid 2px;
 }
 
 p{
     margin: 0%;
+}
+
+.eliminatedCont{
+    background: #0000002d;
+    padding: 25px;
+    width: 356px;
+    border-radius: 51px;
+    border: 1px #ffffff1c solid;
 }

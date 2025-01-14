@@ -1,7 +1,9 @@
+"use client"
 import React from 'react'
 import './Eliminator.css'
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useNavigate } from 'react-router';
+import Radio from '../components/select/select';
 function Eliminator({playerCount, votingInfo, setVotingInfo, setBorderColor}) {
     const [players, setPlayers] = React.useState(Array.from({ length: playerCount }, (_, i) => ({ id: (i + 1).toString().padStart(3, '0'), eliminated: false })));
     const [playerToBeEliminated, setPlayerToBeEliminated] = React.useState('')
@@ -51,7 +53,7 @@ function Eliminator({playerCount, votingInfo, setVotingInfo, setBorderColor}) {
         alignItems: "center",
         flexDirection: "column",
         gap: "20px",
-        width: '100vw',
+        width: "100vw",
       }}
     >
       <p style={{ color: "white" }}>
@@ -64,48 +66,64 @@ function Eliminator({playerCount, votingInfo, setVotingInfo, setBorderColor}) {
           FLIP!
         </button>
       </p>
-      <p style={{margin: '50px', color: 'white', overflow: 'auto', height: '200px'}}>
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '10px'}}>
-        {players.map((item) =>
-          item.eliminated ? (
-            <span
+      
+      <motion.div
+      layout
+      transition={{duration: 0.5}}
+        style={{
+          margin: "50px",
+          color: "white",
+          overflow: "scroll",
+          height:"200px",
+          maxHeight: "200px",
+        }}
+        className='eliminatedCont'
+      >
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(5, 1fr)",
+            gap: "10px",
+          }}
+        >
+          <AnimatePresence>
+          {players.map((item) =>
+            item.eliminated ? (
+              <motion.span
+              layout
+              initial={{scale: 0}}
+              animate={{scale: 1}}
+              exit={{scale: 0}}
+              transition={{duration: 0.5, type:"spring"}}
               key={item.id}
               onClick={() => handleClick(item.id)}
               className="eliminated"
-            >
-              {item.id}
-            </span>
-          ) : null
-        )}
+              >
+                {item.id}
+              </motion.span>
+            ) : null
+          )}
+          </AnimatePresence>
         </div>
-      </p>
+      </motion.div>
       <div className="input-cont">
-      <button onClick={HandleLivePlayer} className='LiveBt'>Live</button>
-        <input placeholder='000' value={playerToBeEliminated} onChange={(e)=>setPlayerToBeEliminated(e.target.value)} type="text" className="playerToBeEliminated" />
-        <button onClick={HandleKillPlayer} className='EliminateBt'>Dead</button>
+        <button onClick={HandleLivePlayer} className="LiveBt">
+          Live
+        </button>
+        <input
+          placeholder="000"
+          value={playerToBeEliminated}
+          onChange={(e) => setPlayerToBeEliminated(e.target.value)}
+          type="text"
+          className="playerToBeEliminated"
+        />
+        <button onClick={HandleKillPlayer} className="EliminateBt">
+          Dead
+        </button>
       </div>
-      <div className='radioInputs'>
+      <div className="radioInputs">
         <p>Voting in the order of:</p>
-        <label>
-          <input
-            type="radio"
-            name="order"
-            value="ascending"
-            checked={votingInfo.notReverse === true}
-            onChange={() => setVotingInfo({ ...votingInfo, notReverse: true })}
-          />
-          increasing
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="order"
-            value="descending"
-            checked={votingInfo.notReverse === false}
-            onChange={() => setVotingInfo({ ...votingInfo, notReverse: false })}
-          />
-          reverse
-        </label>
+        <Radio setVotingInfo={setVotingInfo} votingInfo={votingInfo}/>
       </div>
       <button onClick={handleEliminate} className="RegBt">
         {"Let's Start the Vote!!! >"}
