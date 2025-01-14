@@ -10,7 +10,7 @@ import Eliminator from "./pages/Eliminator";
 
 
 function App() {
-  const [playerCount, setPlayerCount] = React.useState(0);
+  const [playerCount, setPlayerCount] = React.useState(45);
   const [votingInfo, setVotingInfo] = React.useState({"votingPlayers": [], "notReverse": true});
   const [borderColor, setBorderColor] = React.useState("#0b0b0b");
 
